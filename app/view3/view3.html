@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <section class="right col-lg-offset-9">
+            <button type="button" class="btn btn-primary btn-lg lb-bg-color-orange" data-toggle="modal" data-target="#myModal">
+                Add customer
+            </button>
+        </section>
+        <section id="customers-list">
+            <div class="row" ng-repeat="customer in customers.slice(((currentPage - 1) * itemsPerPage), ((currentPage) * itemsPerPage))">
+                <hr>
+                <div class="col-md-4">
+                    <a href="#">
+                        <img class="img-responsive thumbnail" src="{{customer.picture}}" alt="">
+                        <!--<img ng-if="{{customer.picture === undefined}}" class="img-responsive thumbnail" src="http://placehold.it/32*32" alt="">-->
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <h3>{{customer.name}},
+                        <i ng-if="customer.isActive" class="glyphicon glyphicon-globe lb-cl-green"></i>
+                        <i ng-if="!customer.isActive" class="glyphicon glyphicon-globe lb-cl-red"></i>,
+                        
+                        <span class="badge">{{customer.friends.length}} friends,</span></h3>
+                    <h5>{{customer.address}}</h5>
+                    <h5>{{customer.email}}</h5>
+                    <p>{{customer.about}}</p>
+                    <a class="btn btn-primary lb-bg-color-orange lb-bd-orange" ng-click="profil(customer)">{{customer.name}} complete profil <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                <hr>
+            </div>
+            <pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+        </section>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header lb-bg-color-orange">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New customer</h4>
+                    <div ng-show="success.show" class="alert alert-{{success.value}}" role="alert">{{success.msg}}</div>
+                </div>
+                <section id="new-customer-progress-bar">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:{{progressBarValue}}%">
+                            <span class="sr-only">{{progressBarValue}}% Complete</span>
+                        </div>
+                    </div>
+                </section>
+                <form novalidate >
+                    <div class="modal-body">
+
+                        <input ng-model="customer.name"  ng-change="updateProgressBar()" class="form-control lamberio-input" type="text" placeholder="Name" required>
+                        <div class="input-group lamberio-input">
+                            <span class="input-group-addon" id="basic-addon1">@</span>
+                            <input ng-model="customer.email" ng-change="updateProgressBar()" class="form-control" type="email" placeholder="Email" required>
+                        </div>
+                        <input ng-model="customer.company" ng-change="updateProgressBar()" class="form-control lamberio-input" type="text" placeholder="Company" required>
+                        <input ng-model="customer.phone" ng-change="updateProgressBar()" class="form-control lamberio-input" type="number" placeholder="Phone number" required>
+                        <textarea ng-model="customer.description" ng-change="updateProgressBar()" class="form-control lamberio-input" placeholder="Description..." required>
+                            
+                        </textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" ng-click="add()" >Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
