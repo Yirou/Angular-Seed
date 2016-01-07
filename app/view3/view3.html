@@ -6,12 +6,11 @@
             </button>
         </section>
         <section id="customers-list">
-            <div class="row" ng-repeat="customer in customers.slice(((currentPage - 1) * itemsPerPage), ((currentPage) * itemsPerPage))">
+            <div class="row" ng-repeat="customer in customers.slice(((currentPage - 1) * itemsPerPage), ((currentPage) * itemsPerPage)) track by $index">
                 <hr>
                 <div class="col-md-4">
                     <a href="#">
                         <img class="img-responsive thumbnail" src="{{customer.picture}}" alt="">
-                        <!--<img ng-if="{{customer.picture === undefined}}" class="img-responsive thumbnail" src="http://placehold.it/32*32" alt="">-->
                     </a>
                 </div>
                 <div class="col-md-8">
