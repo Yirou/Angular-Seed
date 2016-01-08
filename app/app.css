@@ -39,9 +39,13 @@
 body{
     font-family: 'Slabo 30px', serif;
     color: #ffffff;
-    background: url(../assets/img/header.jpg);
+    background: url(./././assets/img/header.jpg);
 }
+/**********************Nav Bar************************/
 
+.lb-nav{
+    background: #f05f40
+}
 /*******************COLOR**********************/
 .lb-bg-color-orange{
     background: #f05f40;
