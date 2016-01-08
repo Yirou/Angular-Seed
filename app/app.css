@@ -41,11 +41,8 @@ body{
     color: #ffffff;
     background: url(./././assets/img/header.jpg);
 }
-/**********************Nav Bar************************/
 
-.lb-nav{
-    background: #f05f40
-}
+
 /*******************COLOR**********************/
 .lb-bg-color-orange{
     background: #f05f40;
@@ -70,4 +67,7 @@ body{
 }
 .lb-data{
     margin-top: 55px;
+}
+.lb-nav{
+    background: #f05f40
 }
