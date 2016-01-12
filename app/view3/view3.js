@@ -45,9 +45,7 @@ angular.module('myApp.customers', ['ngRoute', 'ui.bootstrap'])
                     $scope.success.msg = "success";
                     $scope.totalItems++;
                     $scope.progressBarValue = 0;
-                    for (var k in $scope.customer) {
-                        $scope.customer = undefined;
-                    }
+                    $scope.customer = undefined;
                 };
                 $scope.updateProgressBar = function () {
                     $scope.progressBarValue = 0;
