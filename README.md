@@ -9,6 +9,6 @@ framework and a bunch of development and testing tools for instant web developme
 
 The seed app doesn't do much, just shows how to wire three controllers and views together.
 
-Customer controller just add and get data from json file.
+Customer controller in view3 allows to add and get data from json file.
 
 
